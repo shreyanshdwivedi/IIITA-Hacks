@@ -5,7 +5,7 @@ from forms import RegisterForm, LoginForm
 # Create your views here.
 
 
-from .forms import ProductAddForm, ProductModelForm
+from .forms import ProductModelForm
 from .models import Product, User
 
 def create_view(request):
