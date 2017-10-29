@@ -13,15 +13,20 @@ GENDER_CHOICES = (
 
 #### Create your models here.
 
+# def content_file_name(instance, filename):
+#     return '/'.join([instance.user.username, filename])
+
 class User(models.Model):
 	name = models.CharField(max_length = 100)
 	username = models.CharField(max_length = 100)
+	college = models.CharField(max_length=100, blank=True)
 	phone = models.CharField(max_length = 12)
 	gender = models.CharField(max_length = 6, default = 'male', choices =  GENDER_CHOICES)
 	about = models.TextField()
 	email = models.EmailField()
 	password = models.CharField(max_length = 20)
 	date_of_birth = models.DateField(auto_now=False, auto_now_add=False)
+	#image = models.FileField(upload_to= content_file_name, default=content_file_name)
 
 
 class Product(models.Model):

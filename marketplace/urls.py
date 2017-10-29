@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from products.views import home_view, register, login
+from products.views import home_view, register, login_view
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -24,6 +24,6 @@ urlpatterns = [
     url(r'^products/', include('products.urls', namespace='products')),
     #url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
     url(r'^register/$', register, name='register'),
-    url(r'^login/$', login, name='login'),
+    url(r'^login/$', login_view, name='login'),
 
 ]

@@ -1,7 +1,8 @@
-from django.http import Http404, HttpResponse
+from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import login, authenticate
 from forms import RegisterForm, LoginForm
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
@@ -73,6 +74,8 @@ def list_view(request):
     }
     return render(request, template, context)
 
+
+@login_required(login_url='/login/')
 def home_view(request):
     return render(request, "all_ads.html", {})
 
@@ -101,9 +104,9 @@ def register(request):
                 return HttpResponse("Email already registered")
             else:
                 user = form.save()
-                user = authenticate(username=user.username, password=user.password)
-                login(request, user)
-                return render(request, 'login.html', {})
+                user.save()
+                #return render(request, 'login.html', {'form':LoginForm})
+                return HttpResponseRedirect('/login/')
         else:
             print form.errors
             return render(request, 'home.html', {'form':form})
@@ -112,7 +115,7 @@ def register(request):
         return render(request, 'signup.html', {'form': form})
 
 
-def login(request):
+def login_view(request):
     if(request.method == "POST"):
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -122,7 +125,10 @@ def login(request):
             if User.objects.filter(username=username).exists():
                 user = User.objects.get(username=username)
                 if password == user.password:
-                    return render(request, 'home.html', {})
+                    context = {
+                        'user': request.user.username
+                    }
+                    return render(request, 'index.html', context)
                 else:
                     return HttpResponse("Password incorrect")
             else:

@@ -1,4 +1,5 @@
 from django import forms
+from django.forms import extras
 
 from django.utils.text import slugify
 
@@ -82,6 +83,8 @@ class RegisterForm(forms.ModelForm):
 			"about",
 			"email",
 			"password",
+			"college",
+			"date_of_birth",
 		]
 
 		widgets = {
@@ -98,6 +101,13 @@ class RegisterForm(forms.ModelForm):
 					"placeholder": "Username",
 					'class': 'form-control input-md',
 					'name': 'username',
+				}
+			),
+			"college": forms.TextInput(
+				attrs={
+					"placeholder": "College Name",
+					'class': 'form-control input-md',
+					'name': 'college',
 				}
 			),
 			"phone": forms.TextInput(
@@ -134,6 +144,12 @@ class RegisterForm(forms.ModelForm):
 			"gender": forms.Select(
 				attrs = {
 					'name' : 'gender'
+				}
+			),
+			"date_of_birth":forms.TextInput(#years = range(1980, 2010),
+				attrs={
+					'name': 'dob'
+					#'class':'datepicker'
 				}
 			),
 		}
