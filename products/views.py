@@ -5,21 +5,19 @@ from forms import RegisterForm, LoginForm
 # Create your views here.
 
 
-from .forms import ProductModelForm
+from .forms import  ProductModelForm
 from .models import Product, User
 
 def create_view(request):
     form = ProductModelForm(request.POST or None)
     if form.is_valid():
-        #print
-        form.cleaned_data.get("publish")
         instance = form.save(commit=False)
-        instance.sale_price = instance.price
+        category = request.POST['category-group']
+        instance.category = category
         instance.save()
-    template = "form.html"
+    template = "ad_form.html"
     context = {
-        "form": form,
-        "submit_btn": "Create Product"
+        "form": form
     }
     return render(request, template, context)
 
@@ -79,7 +77,8 @@ def home_view(request):
     return render(request, "all_ads.html", {})
 
 def form_view(request):
-    return render(request, "ad_form.html", {})
+    form = ProductModelForm
+    return render(request, "ad_form.html", {'form':form})
 
 # def login_view(request):
 #     form = LoginForm()
@@ -134,8 +133,6 @@ def login(request):
         form = LoginForm()
         return render(request, "login.html", {'form':form})
 
-def ad_create(request):
-    return render(request, "ad_form.html", {})
 
 
 

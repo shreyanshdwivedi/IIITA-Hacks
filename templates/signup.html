@@ -1,0 +1,29 @@
+{% load static %}
+
+{% include "header.html" %}
+
+<div class="main-container">
+<div class="container">
+<div class="row">
+<div class="col-md-8 page-content">
+<div class="inner-box category-content">
+<h2 class="title-2"><i class="icon-user-add"></i> Create your account, Its free </h2>
+<div class="row">
+<div class="col-sm-12">
+<form class="form-horizontal" action="." method="post">
+    {% csrf_token %}
+<fieldset>
+    {{ form.as_p }}
+<div class="form-group">
+<label class="col-md-4 control-label"></label>
+<div class="col-md-8">
+<div class="termbox mb10">
+    <input type="submit" value="Register" class="btn btn-primary">
+</div>
+</div>
+</fieldset>
+</form>
+</div>
+</div>
+</div>
+</div>

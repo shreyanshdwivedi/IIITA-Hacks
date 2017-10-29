@@ -1,0 +1,68 @@
+{% load static %}
+
+{% include "header.html" %}
+
+
+{% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+    <body style="background-color:#EEEEEE;">
+        <div class="container" style="margin-top:50px; box-shadow:0 0 10px #cccccc; padding-top:25px; padding-bottom:25px; background-color:white;">
+            <div class="col-md-3" style="box-sizing: border-box;">
+                <img src="{% static 'images/mob1.png' %}" style="height:175px; width:100%; border-radius:5px;">
+            </div>
+            <div class="col-md-3" style="box-sizing: border-box;">
+                <img src="{% static 'images/headphones.jpg' %}" style="height:175px; width:100%; border-radius:5px;">
+            </div>
+            <div class="col-md-3" style="box-sizing: border-box;">
+                <img src="{% static 'images/laptop.jpg' %}" style="height:175px; width:100%; border-radius:5px;">
+            </div>
+            <div class="col-md-3" style="box-sizing: border-box;`">
+                <img src="{% static 'images/accessory.jpg' %}" style="height:175px; width:100%; border-radius:5px;">
+            </div>
+        </div>
+
+        <div class="container" style="margin-top:50px; box-shadow:0 0 10px #cccccc; padding-top:25px; padding-bottom:25px; background-color:white;">
+            <div class="col-md-3" style="box-sizing: border-box;">
+                <img src="{% static 'images/furnishing2.jpg' %}" style="height:175px; width:100%; border-radius:5px;">
+            </div>
+            <div class="col-md-3" style="box-sizing: border-box;">
+                <img src="{% static 'images/sports.jpg' %}" style="height:175px; width:100%; border-radius:5px;">
+            </div>
+            <div class="col-md-3" style="box-sizing: border-box;">
+                <img src="{% static 'images/clothing.jpg' %}" style="height:175px; width:100%; border-radius:5px;">
+            </div>
+            <div class="col-md-3" style="box-sizing: border-box;`">
+                <img src="{% static 'images/musical.jpg' %}" style="height:175px; width:100%; border-radius:5px;">
+            </div>
+        </div>
+
+        <div class="container" style="margin-top:50px; box-shadow:0 0 10px #cccccc; padding-top:25px; padding-bottom:25px; background-color:white;s">
+            <div class="col-md-3" style="box-sizing: border-box;">
+                <img src="{% static 'images/furnishing2.jpg' %}" style="height:175px; width:100%; border-radius:5px;">
+            </div>
+            <div class="col-md-3" style="box-sizing: border-box;">
+                <img src="{% static 'images/sports.jpg' %}" style="height:175px; width:100%; border-radius:5px;">
+            </div>
+            <div class="col-md-3" style="box-sizing: border-box;">
+                <img src="{% static 'images/clothing.jpg' %}" style="height:175px; width:100%; border-radius:5px;">
+            </div>
+            <div class="col-md-3" style="box-sizing: border-box;`">
+                <img src="{% static 'images/musical.jpg' %}" style="height:175px; width:100%; border-radius:5px;">
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://fonts/googleapis.com/css?family=Open+Sans:400,600,700,800,300">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+
+<body>
+<div id="wrapper">
+<div class="header">
+<nav class="navbar navbar-site navbar-default" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<a href="index.html" class="navbar-brand logo logo-title">
+
+<span class="logo-icon"><i class="icon icon-search-1 ln-shadow-logo "></i> </span>
+BOOT<span>CLASSIFIED </span> </a>
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav navbar-right">
+<li><a href="category.html"><i class="icon-th-thumb"></i> All Ads</a></li>
+<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+<span>Jhon Doe</span> <i class="fa fa-user-o"></i> <i class=" icon-down-open-big fa"></i></a>
+<ul class="dropdown-menu user-menu">
+<li class="active"><a href="account-home.html"><i class="icon-home"></i> Personal Home
+</a></li>
+<li><a href="account-myads.html"><i class="icon-th-thumb"></i> My ads </a></li>
+<li><a href="account-favourite-ads.html"><i class="icon-heart"></i> Favourite ads </a>
+ </li>
+<li><a href="account-saved-search.html"><i class="icon-star-circled"></i> Saved search
+</a></li>
+<li><a href="account-archived-ads.html"><i class="icon-folder-close"></i> Archived ads
+</a></li>
+<li><a href="account-pending-approval-ads.html"><i class="icon-hourglass"></i> Pending
+approval </a></li>
+<li><a href="statements.html"><i class=" icon-money "></i> Payment history </a></li>
+<li><a href="login.html"><i class=" icon-logout "></i> Log out </a></li>
+</ul>
+</li>
+<li class="postadd"><a class="btn btn-block   btn-border btn-post btn-danger" href="ad_form.html">Post Free Add</a></li>
+</ul>
+</div>
+
+</div>
+
+</nav>
+</div>

@@ -16,13 +16,14 @@ GENDER_CHOICES = (
 
 
 class ProductModelForm(forms.ModelForm):
-	publish = forms.ChoiceField(choices=PUBLISH_CHOICES, required=False)
+	#publish = forms.ChoiceField(choices=PUBLISH_CHOICES, required=False)
 	class Meta:
 		model = Product
 		fields = [
 			"title",
 			"description",
 			"price",
+			"discount_percentage"
 		]
 		widgets = {
 			"description": forms.Textarea(
@@ -38,6 +39,13 @@ class ProductModelForm(forms.ModelForm):
 					'class': 'form-control input-md',
 					'name': 'title',
 				}
+			),
+			"discount_percentage": forms.TextInput(
+				attrs={
+					"placeholder": "Discount Percentage",
+					'class': 'form-control input-md',
+					'name': 'discount',
+				}
 			)
 		}
 
@@ -47,10 +55,10 @@ class ProductModelForm(forms.ModelForm):
 
 	def clean_price(self):
 		price = self.cleaned_data.get("price")
-		if price <= 1.00:
-			raise forms.ValidationError("Price must be greater than $1.00")
-		elif price >= 100.00:
-			raise forms.ValidationError("Price must be less than $100.00")
+		if price <= 20.00:
+			raise forms.ValidationError("Price must be greater than INR 25.00")
+		elif price >= 100000.00:
+			raise forms.ValidationError("Price must be less than INR 50,000.00")
 		else:
 			return price
 

@@ -25,13 +25,16 @@ class User(models.Model):
 
 
 class Product(models.Model):
-	user = models.ForeignKey(User)
+	#user = models.ForeignKey(User)
+	category = models.CharField(max_length=25, blank=True)
 	title = models.CharField(max_length = 25)
-	slug = models.SlugField(blank = True, unique = True)
+	slug = models.SlugField(blank = True)
 	description = models.TextField(null = True, default = "Descriptions are overrated.")
 	price = models.DecimalField(max_digits = 10, decimal_places = 2, default = 100)
-	discount_percentage = models.IntegerField()
-	discount_status = models.BooleanField()
+	discount_percentage = models.IntegerField(default=0)
+	discount_status = models.BooleanField(default=False)
+
+	media = models.FileField(upload_to='images/%Y/%m/%d/', default='images/%Y/%m/%d/')
 
 	def get_discounted_price(self):
 		if self.discount_status:
